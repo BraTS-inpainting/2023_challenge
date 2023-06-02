@@ -14,7 +14,7 @@ Sub-folders are named ```BraTS-GLI-XXXXX-YYY``` with *XXXXX* being a 5 digit int
 
 
 ## Dataset generation (optional)
-It is also possible to generate the ```BraTS2023_Dataset_Local_Synthesis``` dataset locally. The Jupyter Notebook ```dataset_generation.ipynb``` contains a step-by-step guide to generate our dataset. Example pictures as well as some documentation is also provided there. Note that our dataset is based on the general BraTS2023-GLI dataset. Therefore, to generate our dataset you first need to [download](https://www.synapse.org/#!Synapse:syn51514105) the general BraTS2023-GLI dataset.
+It is also possible to generate the ```BraTS2023_Dataset_Local_Synthesis``` dataset locally. The Jupyter Notebook ```dataset_generation.ipynb``` contains a step-by-step guide to generate our dataset. Example pictures as well as some documentation is also provided there. Note that our dataset is based on the general BraTS2023-GLI-Challenge-TrainingData. Therefore, to generate our dataset you first need to download and extract [ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData.zip](https://www.synapse.org/#!Synapse:syn51514132).
 
 ### Requirements
 - A python3 environment containing the following packages: ```numpy pandas nibabel scipy tqdm matplotlib jupyter```
