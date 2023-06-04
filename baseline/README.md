@@ -21,6 +21,7 @@ Install other packages.
 - nibabel
 - tensorboard
 - jupyter
+- scipy
 - tqdm
 
 For example with conda and current CUDA version 11.7
