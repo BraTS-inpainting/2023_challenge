@@ -29,7 +29,7 @@ For example with conda and current CUDA version 11.7
 conda create -n infill python=3.10
 conda activate infill
 conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
-conda install -c conda-forge pytorch-lightning matplotlib nibabel tensorboard tqdm
+conda install -c conda-forge pytorch-lightning matplotlib nibabel tensorboard scipy tqdm
 conda install -c anaconda jupyter
 
 ```
