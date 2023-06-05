@@ -23,6 +23,12 @@ An exemplary result folder could look like this:
 For each folder in the given validation set, we expect the participant script to generate exactly one result file where the voided t1 file (```t1n-voided.nii.gz```) is in-painted. 
 The result folder can then be uploaded to Synapse. For more information see the Synapse submission tutorial.
 
+## Evaluation Metrics
+To measure the performance of the contributions, we will evaluate the quality of the inpainted regions. We will use the following set of well-established metrics to quantify how realistic the synthesized image regions are compared to real ones:
+- structural similarity index measure (SSIM)
+- peak-signal-to-noise-ratio (PSNR)
+- mean-square-error (MSE)
+
 ## Getting Started
 
 In ```evaluation.ipynb```, you will find exemplary code that lets you generate properly format result files based on your model (we use the baseline model as example). For transparency, we also demonstrate how the server side evaluation script works (this is completely optional).
