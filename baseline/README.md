@@ -9,7 +9,7 @@ This sub-repository implements two explanatory models to tackle the inpainting c
 ## Requirements/Installation
 
 - Download the trained baseline model from [here](
-https://syncandshare.lrz.de/dl/fiWmxMzsnrWyY3yAja85JE/lightning_logs.zip) and unzip it into this folder.
+https://syncandshare.lrz.de/dl/fiWmxMzsnrWyY3yAja85JE/lightning_logs.zip) and unzip it into ```baseline/``` (this folder).
 - Create a new python environment. We recommend python version 3.10
 - Check your cuda version ```nvidia-smi``` (top right)
 - Install required python packages:
