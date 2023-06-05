@@ -1,10 +1,10 @@
 # Baseline Inpainting Model(s)
 
-This sub-repository implements two explanatory models to tackle the inpainting challenge:
+This sub-repository implements two explanatory models to tackle the inpainting challenge.
+Both models shall serve as a comparison for your implemented model. 
 
-1. A 3D pix2pix network (see train_Pix2Pix3D.py)
-2. (optional) A 3D AutoEncoder (see train_AE.py)
-
+  1. A 3D pix2pix network (see train_Pix2Pix3D.py)
+  2. (optional) A 3D AutoEncoder (see train_AE.py)
 
 ## Requirements/Installation
 
