@@ -3,7 +3,7 @@
 
 During the challenge validation phase, the participant gets access to the validation dataset. The participant model then solves the inpainting tasks on this dataset and the resulting images can be uploaded (multiple times) to Synapse for evaluation. You can download the validation set here\*.
 
-This sub-repository complements the general [Synapse wiki page on submissions](https://www.synapse.org/#!Synapse:syn51156910/wiki/622349) for our specific inpainting challenge. Make sure to also read through the general Synapse page!
+This sub-repository complements the general Synapse wiki page on validation submision\* for our specific inpainting challenge. Make sure to also read through the general Synapse page!
 
 ## File Formatting
 
