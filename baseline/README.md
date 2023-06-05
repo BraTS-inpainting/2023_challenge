@@ -8,21 +8,19 @@ This sub-repository implements two explanatory models to tackle the inpainting c
 
 ## Requirements/Installation
 
-- Create a new python environment. We recommend python version 3.10
-- Check your cuda version ```nvidia-smi``` (top right)
-- Install torch and torchvision which is compatible with your cuda version (See https://pytorch.org/)
 - Download the trained baseline model from [here](
 https://syncandshare.lrz.de/dl/fiWmxMzsnrWyY3yAja85JE/lightning_logs.zip) and unzip it into this folder.
-
-Install other packages.
-
-- pytorch-lightning
-- matplotlib
-- nibabel
-- tensorboard
-- jupyter
-- scipy
-- tqdm
+- Create a new python environment. We recommend python version 3.10
+- Check your cuda version ```nvidia-smi``` (top right)
+- Install required python packages:
+  - ```torch``` and ```torchvision``` which are compatible with your cuda version (See https://pytorch.org/)
+  - ```pytorch-lightning```
+  - ```matplotlib```
+  - ```nibabel```
+  - ```tensorboard```
+  - ```jupyter```
+  - ```scipy```
+  - ```tqdm```
 
 For example with conda and current CUDA version 11.7
 ```
@@ -35,7 +33,4 @@ conda install -c anaconda jupyter
 ```
 ## Getting Started
 
-Look at the tutorial_loading_dataset.ipynb. It will lead you through this repository.
-
-
-\* *todo, coming soon!*
+Look at the ```baseline_model.ipynb```. It will lead you through this repository.
