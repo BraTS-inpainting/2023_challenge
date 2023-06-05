@@ -1,5 +1,5 @@
 # The Dataset
-he [dataset for training](https://www.synapse.org/#!Synapse:syn51522870) can be downloaded on the official Synapse website after [registering for the challenge](https://www.synapse.org/#!Synapse:syn51156910/wiki/622347).
+The [dataset for training](https://www.synapse.org/#!Synapse:syn51522870) can be downloaded on the official Synapse website after [registering for the challenge](https://www.synapse.org/#!Synapse:syn51156910/wiki/622347).
 
 ## Dataset structure
 The ```BraTS2023_Dataset_Local_Synthesis``` folder contains one sub-folder for each brain.
@@ -10,11 +10,11 @@ The following entries for ```{type}``` exist in this inpainting challenge:
 ![Figure: Challenge Datasets](figure_challenge_datasets.png "Challenge Datasets")
 
 ### File Types
-- **t1n-voided**: T1 scan where the to-be-infilled section is voided (set to background). 
-- **mask**: mask (binary) specifying which voxels shall be in-painted. 
-- **t1n**: full T1 scan. This scan therefore includes the **ground truth** for the voided T1 image which is to be infilled.
-- **mask-unhealthy**: mask (binary) specifying the (slightly enlarged) tumor annotation region.
-- **mask-healthy**: mask (binary) specifying an exemplary tumor mask in healthy tissue.
+- **t1n-voided**: T1 scan where the **to-be-infilled** section is voided (set to background). 
+- **mask**: mask (binary) specifying which voxels **shall be in-painted**. 
+- **t1n**: full T1 scan including the **ground truth** for the voided T1 image.
+- **mask-unhealthy**: mask (binary) specifying the (slightly enlarged) **tumor region**.
+- **mask-healthy**: mask (binary) specifying an exemplary **healthy tissue region**.
 
 Note that your inpainting algorithm has to be able to work **only on the mask and the t1n-voided file**. The additionally provided files during the training phase are only meant for enhancing the training process (e.g. when participants want to generate more/different training data)
 
