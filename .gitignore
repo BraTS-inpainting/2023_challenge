@@ -1,1 +1,38 @@
-.ipynb_checkpoints
+
+## Dataset
+
+#BraTS2023-GLI-Challenge-TrainingData
+BraTS2023_Dataset/
+
+#Dataset Generation files
+dataset/binarySegmentationMasks.gz
+dataset/tumorCompartments.gz
+dataset/healthyMasks.gz
+
+#BraTS2023_Dataset_Local_Synthesis
+BraTS2023_Dataset_Local_Synthesis/
+
+
+## Baseline model
+
+#Baseline Model(s) and lightning logs
+baseline/lightning_logs/
+
+
+## Evaluation
+
+#BraTS2023_Inpainting_Results
+BraTS2023_Inpainting_Results/
+
+#Team evaluation files
+evaluation_*.json
+evaluation_*.yaml
+
+
+##Others
+
+#Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+#Python cache
+__pycache__/
