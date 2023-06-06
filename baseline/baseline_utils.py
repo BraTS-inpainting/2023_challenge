@@ -6,8 +6,9 @@ from math import floor, ceil
 import numpy as np
 import matplotlib.pyplot as plt
 
-from matplotlib import colors #for_ custom colormap
+from matplotlib import colors  # for_ custom colormap
 from scipy import ndimage  # for: getting boundaries of image
+
 
 def normalize(tensor):
     return (tensor * 2) - 1  # map [0,1]->[-1,1]
@@ -149,22 +150,16 @@ def weights_init_normal(m):
 #### Plotting ####
 
 
-#helper function to plot transparent mask with boundary on given axis
+# helper function to plot transparent mask with boundary on given axis
 def _plot_mask(axis, mask, color=(0.90, 0.60, 0.0, 1.0), alpha_mask=0.5, alpha_boundary=1.0):
-    cmap = colors.ListedColormap([
-                (0,0,0,0), #zeros: transparent
-                color #ones: provided_color
-                ] )
+    cmap = colors.ListedColormap([(0, 0, 0, 0), color])  # zeros: transparent  # ones: provided_color
     axis.imshow(mask, cmap=cmap, alpha=alpha_mask, interpolation="nearest")
-    boundary = ndimage.morphology.binary_dilation(mask, np.ones((3,3),dtype=bool)) != mask #get boundaries
-    axis.imshow(boundary, cmap=cmap,alpha=alpha_boundary)
+    boundary = ndimage.morphology.binary_dilation(mask, np.ones((3, 3), dtype=bool)) != mask  # get boundaries
+    axis.imshow(boundary, cmap=cmap, alpha=alpha_boundary)
+
 
 # plot single image, 5 slices
-def plot_3D(image,
-            healthyMask=None, unhealthyMask=None, generalMask=None,
-            steps_size=15, cmap_image="gray",
-            dpi=100
-            ):
+def plot_3D(image, healthyMask=None, unhealthyMask=None, generalMask=None, steps_size=15, cmap_image="gray", dpi=100):
     """Input might be CDWH or DWH.
 
     COmputes center slice
@@ -176,35 +171,35 @@ def plot_3D(image,
     """
     shape = image.shape
 
-    #sliceIDs = list(range(0, shape[-1], steps_size)) #all slices with distance steps_size
-    middle = int(shape[-1]/2) # middle slice index
-    sliceIDs = [middle-2*steps_size, middle-steps_size, middle, middle+steps_size, middle+2*steps_size]
+    # sliceIDs = list(range(0, shape[-1], steps_size)) #all slices with distance steps_size
+    middle = int(shape[-1] / 2)  # middle slice index
+    sliceIDs = [middle - 2 * steps_size, middle - steps_size, middle, middle + steps_size, middle + 2 * steps_size]
     size = (shape[-3] / 60.0, shape[-2] / 60.0)  # D/120, W/120
-    
-    #Reduce dimensions CWDH -> WDH if necessary
-    
+
+    # Reduce dimensions CWDH -> WDH if necessary
+
     fig, ax = plt.subplots(figsize=(size[0] * len(sliceIDs), size[1]), nrows=1, ncols=len(sliceIDs), squeeze=True, sharey=True, dpi=dpi)
 
     for i, sliceID in enumerate(sliceIDs):
-        #plot image
+        # plot image
         # ax[i].set_title(sliceID)
-        img = image[0,:,:,sliceID].T if len(shape) == 4 else image[:,:,sliceID].T
+        img = image[0, :, :, sliceID].T if len(shape) == 4 else image[:, :, sliceID].T
         ax[i].imshow(img, cmap=cmap_image, interpolation="nearest")
-        
-        #plot masks if provided
-        if( not healthyMask is None):
-            img = healthyMask[0,:,:,sliceID].T if len(healthyMask.shape) == 4 else healthyMask[:,:,sliceID].T
-            img = np.array(img).astype(bool)
-            _plot_mask(ax[i], img, color=(0.0, 0.80, 0.20, 1.0) ) # green
 
-        if( not unhealthyMask is None):
-            img = unhealthyMask[0,:,:,sliceID].T if len(unhealthyMask.shape) == 4 else unhealthyMask[:,:,sliceID].T
+        # plot masks if provided
+        if not healthyMask is None:
+            img = healthyMask[0, :, :, sliceID].T if len(healthyMask.shape) == 4 else healthyMask[:, :, sliceID].T
             img = np.array(img).astype(bool)
-            _plot_mask(ax[i], img, color=(0.90, 0.10, 0.10, 1.0) ) # red
+            _plot_mask(ax[i], img, color=(0.0, 0.80, 0.20, 1.0))  # green
 
-        if( not generalMask is None):
-            img = generalMask[0,:,:,sliceID].T if len(generalMask.shape) == 4 else generalMask[:,:,sliceID].T
+        if not unhealthyMask is None:
+            img = unhealthyMask[0, :, :, sliceID].T if len(unhealthyMask.shape) == 4 else unhealthyMask[:, :, sliceID].T
             img = np.array(img).astype(bool)
-            _plot_mask(ax[i], img, color=(0.90, 0.60, 0.0, 1.0) ) # orange
+            _plot_mask(ax[i], img, color=(0.90, 0.10, 0.10, 1.0))  # red
+
+        if not generalMask is None:
+            img = generalMask[0, :, :, sliceID].T if len(generalMask.shape) == 4 else generalMask[:, :, sliceID].T
+            img = np.array(img).astype(bool)
+            _plot_mask(ax[i], img, color=(0.90, 0.60, 0.0, 1.0))  # orange
 
     plt.show()

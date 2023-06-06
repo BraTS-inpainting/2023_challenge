@@ -110,14 +110,14 @@ class Pix2Pix3D(pl.LightningModule):
             self.log(f"train/loss_GAN", loss_G_GAN.detach().cpu())
         loss_paired = 0
         loss_ssim = 0
-        #compute MSE only on 
+        # compute MSE only on
         gt_image_values = gt_image[mask]
         fake_gt_image_values = fake_gt_image[mask]
-        if(len(gt_image_values) == 0): #if there is no infill region in this cuboid just return loss 0. 
-            loss_paired = self.criterion(gt_image, fake_gt_image) # TODO: find better solution!
-        else: #otherwise evaluate loss properly
+        if len(gt_image_values) == 0:  # if there is no infill region in this cuboid just return loss 0.
+            loss_paired = self.criterion(gt_image, fake_gt_image)  # TODO: find better solution!
+        else:  # otherwise evaluate loss properly
             loss_paired = self.criterion_paired(gt_image_values, fake_gt_image_values)
-        
+
         self.log(f"train/loss_paired", loss_paired.detach().cpu())
         if self.lambda_ssim > 0.0:
             loss_ssim = self.lambda_ssim * (1 - structural_similarity_index_measure(gt_image + 1, fake_gt_image + 1, data_range=2.0))  # type: ignore
@@ -206,7 +206,7 @@ if __name__ == "__main__":
         "-g",
         "--gpus",
         dest="gpus",
-        type=int, 
+        type=int,
         nargs="+",
         default=[0],
         help="comma separated list of cuda device (e.g. GPUs) to be used",
@@ -219,7 +219,6 @@ if __name__ == "__main__":
     parser.add_argument("-cs", "--crop-shape", dest="crop_shape", type=int, nargs="+", default=[128, 128, 96], help="Crop shape")
     # Accelerator
     parser.add_argument("-cp", "--ckpt-path", dest="ckpt_path", type=str, default=None, help="Checkpoint path")
-
 
     #### Set Parameters / Initialize ###
     args = parser.parse_args()  # Get commandline arguments
@@ -236,7 +235,7 @@ if __name__ == "__main__":
     seed = args.seed
     train_p, val_p = args.split
     crop_shape = args.crop_shape
-    if(args.ckpt_path == "None"):
+    if args.ckpt_path == "None":
         ckpt_path = None
     else:
         ckpt_path = args.ckpt_path
@@ -249,7 +248,7 @@ if __name__ == "__main__":
 
     # Get dataset and split it
     if not dataset_path.exists():
-        raise UserWarning("Dataset path \"{dataset_path}\" does not exist!!")
+        raise UserWarning('Dataset path "{dataset_path}" does not exist!!')
     dataset = Dataset_Training(dataset_path, crop_shape=crop_shape, center_on_mask=True)
     train_set, validation_set = torch.utils.data.random_split(dataset, [train_p, val_p])
 
@@ -257,7 +256,6 @@ if __name__ == "__main__":
     validation_loader = DataLoader(validation_set, batch_size=batch_size, shuffle=False, num_workers=16)
     # TODO: tune prefetch_factor and pin_memory
 
-    
     ### Model and Training ###
     lighting_module = Pix2Pix3D(epochs)
     from pytorch_lightning.callbacks import ModelCheckpoint
@@ -278,7 +276,7 @@ if __name__ == "__main__":
     print("experiment_name:", name)
     print("######################################")
 
-    # Setup Trainer 
+    # Setup Trainer
     trainer = pl.Trainer(
         accelerator=accelerator,
         devices=gpus,
@@ -290,15 +288,15 @@ if __name__ == "__main__":
         callbacks=[checkpoint_callback],  # You may add here additional call back that saves the best model
         # limit_train_batches=150
         # detect_anomaly=True,
-        strategy= ('ddp_find_unused_parameters_true' if len(gpus) > 1 else "auto") #for distributed compatibility
+        strategy=("ddp_find_unused_parameters_true" if len(gpus) > 1 else "auto"),  # for distributed compatibility
     )
 
     # Fit/train model
-    if(ckpt_path != None): #try to continue training
+    if ckpt_path != None:  # try to continue training
         ckpt_path = Path(ckpt_path)
-        if(not ckpt_path.exists()):
-            raise UserWarning(f"Checkpoint path \"{ckpt_path}\" does not exist!!")
+        if not ckpt_path.exists():
+            raise UserWarning(f'Checkpoint path "{ckpt_path}" does not exist!!')
         print(f"Try to resume from {ckpt_path}")
         trainer.fit(lighting_module, train_loader, validation_loader, ckpt_path=ckpt_path)
-    else: # start training anew
+    else:  # start training anew
         trainer.fit(lighting_module, train_loader, validation_loader)

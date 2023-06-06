@@ -24,9 +24,7 @@ class ResidualBlock(nn.Module):
 
 
 class Generator(nn.Module):
-    def __init__(
-        self, input_nc, output_nc, net_G_depth=9, net_G_downsampling=2, net_G_channel=64, net_G_drop_out=0.5, **args
-    ):
+    def __init__(self, input_nc, output_nc, net_G_depth=9, net_G_downsampling=2, net_G_channel=64, net_G_drop_out=0.5, **args):
         super(Generator, self).__init__()
 
         # Initial convolution block

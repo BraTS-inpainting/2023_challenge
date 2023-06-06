@@ -6,6 +6,8 @@ Both models shall serve as a comparison for your implemented model.
   1. A 3D Pix2Pix network (see train_Pix2Pix3D.py)
   2. (optional) A 3D AutoEncoder (see train_AE.py)
 
+![Figure: Inpainting Task](figure_task.png "Inpainting Task")
+
 ## Requirements/Installation
 
 - Download the trained baseline model from [here](

@@ -1,5 +1,7 @@
 # BraTS 2023 Inpainting Challenge (Local Synthesis)
 
+![Figure: Challenge Thumbnail](figure_challenge.jpeg "Challenge Thumbnail")
+
 This repository is meant as tutorial for challenge participants. 
 
 If you have not visited the [BraTS 2023 Inpainting Website](https://www.synapse.org/#!Synapse:syn51156910/wiki/622357) yet, you should do so. Also considere reading [the challenge manuscript](https://arxiv.org/abs/2305.08992) for more context as the GitHub tutorial are rather technical in nature.

@@ -66,9 +66,7 @@ class UpBLock(nn.Module):
 
         self.conv_block = nn.Sequential(*conv_block)
         if increase_size:
-            self.up_conv = nn.ConvTranspose3d(
-                in_channels=in_features, out_channels=in_features, kernel_size=2, stride=2
-            )
+            self.up_conv = nn.ConvTranspose3d(in_channels=in_features, out_channels=in_features, kernel_size=2, stride=2)
         else:
             self.up_conv = nn.Identity()
         # h_in	32

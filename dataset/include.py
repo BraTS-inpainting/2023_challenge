@@ -820,7 +820,7 @@ def process_getHealthyMasks(packed_parameters):
         sampleCompartment() : Semi-randomly chooses a existing tumor segmentation compartment as healthy tissue mask.
         validSampling() : Checks whether the sampled configuration is valid given our criteria.
         getHealthyMasks() : The function that creates these workers.
-        numpy.packbits() : Numpy function to efficiently store binary arrays. 
+        numpy.packbits() : Numpy function to efficiently store binary arrays.
 
     Side effects:
         Read and write on filesystem
@@ -999,11 +999,11 @@ def getHealthyMasks(
             Seed to make the sampling process reproducible.
 
     Returns:
-        healthyMasks : pandas.DataFrame  
+        healthyMasks : pandas.DataFrame
             Table containing all extracted tumor segmentation compartments. The DataFrame has the following columns:
-                brainFolder : str, primary key.  
+                brainFolder : str, primary key.
                     Folder name identifying the brain the healthy mask(s) was/were generated for.
-                healthyMasks : list ofnumpy.ndarray of shape: 1116000 ( <- (240*240*155)/8 )  
+                healthyMasks : list ofnumpy.ndarray of shape: 1116000 ( <- (240*240*155)/8 )
                     A list of packed (see numpy.packbits()) healthy tissue masks that were generated for the respective
                     brain. The length of this list is equal to samplesPerBrain.
 
@@ -1083,7 +1083,7 @@ def getHealthyMasks(
                     outputData["brainFolder"].append(folderName)
                     outputData["packedMasks"].append(healthyMasks)
 
-                pbar.update(len(batch)) #update progress bar status
+                pbar.update(len(batch))  # update progress bar status
 
         # convert and save output data
         print(f"Saving data to {filePath}")

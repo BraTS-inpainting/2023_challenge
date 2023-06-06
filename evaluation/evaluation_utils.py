@@ -7,7 +7,7 @@ ssim = StructuralSimilarityIndexMeasure(return_full_image=True)
 mse = MeanSquaredError()
 
 
-def compute_metrics(gt_image:torch.Tensor, output:torch.Tensor, mask:torch.Tensor, normalize=True):
+def compute_metrics(gt_image: torch.Tensor, output: torch.Tensor, mask: torch.Tensor, normalize=True):
     """Computes MSE, PSNR and SSIM between two images only in the masked region.
 
     Normalizes the two images to [0;1] based on the gt_image maximal value in the masked region.
@@ -37,15 +37,15 @@ def compute_metrics(gt_image:torch.Tensor, output:torch.Tensor, mask:torch.Tenso
     if not (output.shape[0] == 1 and output.shape[1] == 1):
         raise UserWarning(f"All inputs have to be 5D with the first two dimensions being 1. Your output dimension: {output.shape}")
 
-    #Get Infill region (we really are only interested in the infill region)
+    # Get Infill region (we really are only interested in the infill region)
     output_infill = output * mask
     gt_image_infill = gt_image * mask
 
     # Normalize to [0;1] based on GT (otherwise MSE will depend on the image intensity range)
-    if(normalize):
+    if normalize:
         v_max = gt_image_infill.max()
-        output_infill/=v_max
-        gt_image_infill/=v_max
+        output_infill /= v_max
+        gt_image_infill /= v_max
 
     # SSIM - apply on complete masked image but only take values from masked region
     full_cuboid_SSIM, ssim_idx_full_image = ssim(gt_image_infill, output_infill)
