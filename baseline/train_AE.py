@@ -107,7 +107,7 @@ if __name__ == "__main__":
         "--dataset",
         dest="dataset_path",
         type=str,
-        default="../BraTS2023_Dataset_Local_Synthesis",
+        default="../ASNR-MICCAI-BraTS2023-Local-Synthesis-Challenge-Training",
         help="BraTS2023 training datatset path",
     )
     # Accelerator

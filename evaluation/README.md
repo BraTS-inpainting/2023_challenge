@@ -1,9 +1,8 @@
-
 # Evaluation of Inpainting Submissions
 
-During the challenge validation phase, the participant gets access to the validation dataset. The participant model then solves the inpainting tasks on this dataset and the resulting images can be uploaded (multiple times) to Synapse for evaluation. You can download the validation set here\*.
+During the challenge validation phase, the participant gets access to the validation dataset. The participant model then solves the inpainting tasks on this dataset and the resulting images can be uploaded (multiple times) to Synapse for evaluation. You can download the validation set [here](https://www.synapse.org/#!Synapse:syn51684975).
 
-This sub-repository complements the general Synapse wiki page on validation submision\* for our specific inpainting challenge. Make sure to also read through the general Synapse page!
+This sub-repository complements the general Synapse wiki page on validation submission\* for our specific inpainting challenge. Make sure to also read through the general Synapse page!
 
 ## File Formatting
 
@@ -11,7 +10,7 @@ All files in the inpainting output folder should have the following format: ```B
 
 An exemplary result folder could look like this:
 
-```BraTS2023_Inpainting_Results```
+```ASNR-MICCAI-BraTS2023-Local-Synthesis-Challenge-Validation-Results```
 - ```BraTS-GLI-00000-000-t1n-inference.nii.gz```
 - ```BraTS-GLI-00002-000-t1n-inference.nii.gz```
 - ```BraTS-GLI-00003-000-t1n-inference.nii.gz```

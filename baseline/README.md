@@ -10,8 +10,9 @@ Both models shall serve as a comparison for your implemented model.
 
 ## Requirements/Installation
 
+- Download the training dataset from [here](https://www.synapse.org/#!Synapse:syn51523038) and unzip it into the root of this repository (```2023_challenge/```)
 - Download the trained baseline model from [here](
-https://syncandshare.lrz.de/dl/fiWmxMzsnrWyY3yAja85JE/lightning_logs.zip) and unzip it into ```baseline/``` (this folder).
+https://syncandshare.lrz.de/dl/fiWmxMzsnrWyY3yAja85JE/lightning_logs.zip) and unzip it into ```2023_challenge/`baseline/``` (this folder).
 - Create a new python environment. We recommend python version 3.10
 - Check your cuda version ```nvidia-smi``` (top right)
 - Install required python packages:

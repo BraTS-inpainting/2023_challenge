@@ -77,7 +77,7 @@ def process_generateSegmentationMasks(packed_parameters: tuple) -> tuple:
                     Folder name of the respective folder in inputFolderRoot. Example: "BraTS-GLI-01337-000"
                 inputFolderRoot : pathlib.Path
                     Path to reference BraTS dataset. Example:
-                    "BraTS2023_Dataset/ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData"
+                    "ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData"
                 relevantLabels : list
                     List of original BraTS labels that will be considered for the "whole tumor" annotation. This variable
                     relates to the labels in segmentationMask.
@@ -164,7 +164,7 @@ def generateBinarySegmentationMasks(
 
     Args:
         inputFolderRoot : pathlib.Path
-            Path to reference BraTS dataset. Example:"BraTS2023_Dataset/ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData"
+            Path to reference BraTS dataset. Example:"ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData"
         relevantLabels : list, optional, default=[1,2,3]
             List of original BraTS labels that will be considered for the "whole tumor" annotation. This variable
             relates to the labels in segmentationMask.
@@ -770,9 +770,9 @@ def process_getHealthyMasks(packed_parameters):
                 generalParameters:
                     inputFolderRoot : pathlib.Path
                         Path to reference BraTS dataset.
-                        Example:"BraTS2023_Dataset/ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData"
+                        Example:"ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData"
                     outputFolderRoot : pathlib.Path
-                        Path to the output folder. Example: "BraTS2023_Dataset_Local_Synthesis"
+                        Path to the output folder. Example: "ASNR-MICCAI-BraTS2023-Local-Synthesis-Challenge-Training"
                     tumorCompartments : pandas.DataFrame
                         Table containing all extracted tumor segmentation compartments.
                         For mor details see getTumorCompartments()
@@ -963,9 +963,9 @@ def getHealthyMasks(
     Args:
         inputFolderRoot : pathlib.Path
             Path to reference BraTS dataset.
-            Example:"BraTS2023_Dataset/ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData"
+            Example:"ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData"
         outputFolderRoot : pathlib.Path
-            Path to the output folder. Example: "BraTS2023_Dataset_Local_Synthesis"
+            Path to the output folder. Example: "ASNR-MICCAI-BraTS2023-Local-Synthesis-Challenge-Training"
         tumorSegmentations : pandas.DataFrame
             Table containing all generated binary segmentation masks.
             For more details see generateBinarySegmentationMasks()
