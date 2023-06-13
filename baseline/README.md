@@ -16,7 +16,7 @@ https://syncandshare.lrz.de/dl/fiWmxMzsnrWyY3yAja85JE/lightning_logs.zip) and un
 - Create a new python environment. We recommend python version 3.10
 - Check your cuda version ```nvidia-smi``` (top right)
 - Install required python packages:
-  - ```torch``` and ```torchvision``` which are compatible with your cuda version (See https://pytorch.org/)
+  - ```torch``` and ```torchvision``` which are compatible with your cuda version (See https://pytorch.org/). Note however, that for ```pytorch<1.13```, you might encounter [issues](https://github.com/BraTS-inpainting/2023_challenge/issues/1) with our code. Use ```pytroch>=2.0.0``` if possible
   - ```pytorch-lightning```
   - ```matplotlib```
   - ```nibabel```
@@ -29,7 +29,7 @@ For example with conda and current CUDA version 11.7
 ```
 conda create -n infill python=3.10
 conda activate infill
-conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+conda install "torch>=2.0.0" torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
 conda install -c conda-forge pytorch-lightning matplotlib nibabel tensorboard scipy tqdm
 conda install -c anaconda jupyter
 
