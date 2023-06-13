@@ -251,6 +251,9 @@ if __name__ == "__main__":
         raise UserWarning('Dataset path "{dataset_path}" does not exist!!')
     dataset = Dataset_Training(dataset_path, crop_shape=crop_shape, center_on_mask=True)
     train_set, validation_set = torch.utils.data.random_split(dataset, [train_p, val_p])
+    #Note: if the above line (random_split) results in "ValueError: Sum of input lengths does not equal the length of the input dataset!"
+    # for the original version of the notebook/code, you are probably using torch version below 1.13 which is not supporting fractions
+    # see https://github.com/BraTS-inpainting/2023_challenge/issues/1 
 
     train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, num_workers=16)
     validation_loader = DataLoader(validation_set, batch_size=batch_size, shuffle=False, num_workers=16)
