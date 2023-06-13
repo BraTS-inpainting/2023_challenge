@@ -248,7 +248,7 @@ if __name__ == "__main__":
 
     # Get dataset and split it
     if not dataset_path.exists():
-        raise UserWarning('Dataset path "{dataset_path}" does not exist!!')
+        raise UserWarning(f'Dataset path "{dataset_path}" does not exist!!')
     dataset = Dataset_Training(dataset_path, crop_shape=crop_shape, center_on_mask=True)
     train_set, validation_set = torch.utils.data.random_split(dataset, [train_p, val_p])
     #Note: if the above line (random_split) results in "ValueError: Sum of input lengths does not equal the length of the input dataset!"

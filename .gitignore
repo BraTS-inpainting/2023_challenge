@@ -9,8 +9,7 @@ dataset/binarySegmentationMasks.gz
 dataset/tumorCompartments.gz
 dataset/healthyMasks.gz
 
-ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData
-
+ASNR-MICCAI-BraTS2023-Local-Synthesis-Challenge-Training
 
 ## Baseline model
 
