@@ -48,7 +48,7 @@ def compute_metrics(gt_image: torch.Tensor, output: torch.Tensor, mask: torch.Te
         gt_image_infill /= v_max
 
     # SSIM - apply on complete masked image but only take values from masked region
-    full_cuboid_SSIM, ssim_idx_full_image = ssim(gt_image_infill, output_infill)
+    full_cuboid_SSIM, ssim_idx_full_image = ssim(preds=output_infill, target=gt_image_infill)
     ssim_idx = ssim_idx_full_image[mask]
     SSIM = ssim_idx.mean()
 
@@ -57,9 +57,9 @@ def compute_metrics(gt_image: torch.Tensor, output: torch.Tensor, mask: torch.Te
     output_infill = output_infill[mask]
 
     # MSE
-    MSE = mse(gt_image_infill, output_infill)
+    MSE = mse(preds=output_infill, target=gt_image_infill)
 
-    # PSNR - similar to pytorch PeakSignalNoiseRatio until 4 digits after decimal point
-    PSNR = 10.0 * torch.log10((torch.max(gt_image_infill) - torch.min(gt_image_infill)) ** 2 / MSE)
+    # PSNR
+    PSNR = psnr(preds=output_infill, target=gt_image_infill)
 
     return float(MSE), float(PSNR), float(SSIM)
