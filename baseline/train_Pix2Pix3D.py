@@ -217,7 +217,7 @@ if __name__ == "__main__":
     parser.add_argument("-ds", "--split", dest="split", type=float, nargs="+", default=(0.8, 0.2), help="Dataset split")
     # Train-Validation split percentage
     parser.add_argument("-cs", "--crop-shape", dest="crop_shape", type=int, nargs="+", default=[128, 128, 96], help="Crop shape")
-    # Accelerator
+    # Checkpoint path
     parser.add_argument("-cp", "--ckpt-path", dest="ckpt_path", type=str, default=None, help="Checkpoint path")
 
     #### Set Parameters / Initialize ###
