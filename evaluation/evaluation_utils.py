@@ -4,7 +4,8 @@ import torch
 import numpy as np
 
 # Define evaluation Metrics
-psnr = PeakSignalNoiseRatio(data_range=1.0) #because we normalize to 0-1
+psnr_01 = PeakSignalNoiseRatio(data_range=1.0) #because we normalize to 0-1
+psnr = PeakSignalNoiseRatio() #default versionen that uses max
 ssim = StructuralSimilarityIndexMeasure(return_full_image=True)
 mse = MeanSquaredError()
 
@@ -89,8 +90,11 @@ def compute_metrics(gt_image: torch.Tensor, prediction: torch.Tensor, mask: torc
 
     # MSE
     MSE = mse(preds=prediction_infill, target=gt_image_infill)
-
+    
+    # PSNR with fixed data range (using top down knowledge of our data. Namely that it is always in the range of 0 to 1)
+    PSNR_01 = psnr_01(preds=prediction_infill, target=gt_image_infill)
+    
     # PSNR
     PSNR = psnr(preds=prediction_infill, target=gt_image_infill)
 
-    return float(MSE), float(PSNR), float(SSIM)
+    return float(MSE), float(PSNR), float(PSNR_01), float(SSIM)
