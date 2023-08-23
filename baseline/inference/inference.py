@@ -15,19 +15,24 @@ def read_nifti(input_nifti_path):
 
 def inpaint_numpy_array(
     voided_input,
+    inpainting_mask,
 ):
-    # TODO
+    # TODO load model weights and run prediction
     predicted = "TODO"
     return predicted
 
 
 def infer_single_case(
     voided_nifti_file,
+    inpainting_mask_nifti_file,
     prediction_file,
 ):
     voided = read_nifti(voided_nifti_file)
+    mask = read_nifti(inpainting_mask_nifti_file)
+
     inpainted = inpaint_numpy_array(
-        voided=voided,
+        voided_input=voided,
+        inpainting_mask=mask,
     )
 
     write_nifti(
