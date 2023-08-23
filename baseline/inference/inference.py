@@ -25,7 +25,7 @@ def inpaint_numpy_array(
 def infer_single_case(
     voided_nifti_file,
     inpainting_mask_nifti_file,
-    prediction_file,
+    prediction_nifti_file,
 ):
     voided = read_nifti(voided_nifti_file)
     mask = read_nifti(inpainting_mask_nifti_file)
@@ -37,7 +37,7 @@ def infer_single_case(
 
     write_nifti(
         input_array=inpainted,
-        output_nifti_path=prediction_file,
+        output_nifti_path=prediction_nifti_file,
         reference_nifti_path=voided_nifti_file,
     )
     return True
