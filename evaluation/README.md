@@ -23,12 +23,12 @@ For each folder in the given validation set, we expect the participant script to
 The result folder can then be uploaded to Synapse. For more information see the Synapse submission tutorial.
 
 ## Evaluation Metrics
-To measure the performance of the contributions, we will evaluate the quality of the inpainted regions. We will use the following set of well-established metrics to quantify how realistic the synthesized image regions are compared to real ones:
+To measure the performance of the contributions, we will evaluate the quality of the inpainted regions. Among others, we will use the following well-established metrics to quantify how realistic the synthesized image regions are compared to real ones:
 - [structural similarity index measure](https://torchmetrics.readthedocs.io/en/stable/image/structural_similarity.html) (SSIM)
 - [peak-signal-to-noise-ratio](https://torchmetrics.readthedocs.io/en/stable/image/peak_signal_noise_ratio.html) (PSNR)
 - [mean-squared-error](https://torchmetrics.readthedocs.io/en/stable/regression/mean_squared_error.html) (MSE)
 
-The above mentrics are only evaluated in the regions that are to-be-inpainted (the ```mask.nii.gz``` file). For more details see the (nicely documented) implementation at ```evaluation/evaluation_ustils.py```.
+The above metrics are only evaluated in the regions that are to-be-inpainted (the ```mask.nii.gz``` file).
 
 ## Getting Started
 
