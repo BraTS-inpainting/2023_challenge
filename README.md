@@ -1,4 +1,6 @@
 # BraTS 2023 Inpainting Challenge (Local Synthesis)
+> ATTENTION: The BraTS inpainting challenge 2023 is finished. We want to thank everybody who contributed to this event. Please follow us [here](https://x.com/BraTS_inpaint), to stay updated regarding our BraTS inpainting challenges.
+
 
 ![Figure: Challenge Thumbnail](figure_challenge.jpeg "Challenge Thumbnail")
 
@@ -15,6 +17,3 @@ This repository is divided into three subtopics with a separate README file each
     Shows how out evaluation script works on the Synapse server using out baseline model as example. During the validation phase you will need to [upload predictions](https://www.synapse.org/#!Synapse:syn51156910/wiki/622349) to the Synapse server.
 - **Submission**: *submission/README.md*
     Guides you tough the [synapse submission process](https://www.synapse.org/#!Synapse:syn51156910/wiki/622349) using our baseline model as example.\* This is relevant for the final submission where you will upload your whole model to Synapse.\*
-
-
-\* *todo, coming soon*
