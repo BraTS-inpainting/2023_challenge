@@ -1,6 +1,6 @@
-# BraTS 2023 Inpainting Challenge (Local Synthesis)
 > ATTENTION: The BraTS inpainting challenge 2023 is finished. We want to thank everybody who contributed to this event. Please follow us [here](https://x.com/BraTS_inpaint), to stay updated regarding our BraTS inpainting challenges.
 
+# BraTS 2023 Inpainting Challenge (Local Synthesis)
 
 ![Figure: Challenge Thumbnail](figure_challenge.jpeg "Challenge Thumbnail")
 
